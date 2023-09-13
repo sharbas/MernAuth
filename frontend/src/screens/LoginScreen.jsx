@@ -6,7 +6,7 @@ import FormContainer from '../components/formContainer.jsx'
 import {useLoginMutation} from '../slices/usersApiSlice.js'
 import { setCredentials } from '../slices/authSlice.js'
 import {toast } from 'react-toastify'
-import Loader from '../components/Loader.jsx'
+// import Loader from '../components/Loader.jsx'
 
 const LoginScreen=()=>{
     const [email,setEmail]=useState('')

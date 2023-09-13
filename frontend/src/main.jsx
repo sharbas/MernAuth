@@ -6,16 +6,33 @@ import {createBrowserRouter,createRoutesFromElements,Route,RouterProvider} from 
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
+import PrivateRoute from './components/privateRoute.jsx'
 import HomeScreen from './screens/HomeScreen.jsx'
 import LoginScreen from './screens/LoginScreen.jsx';
 import RegisterScreen from './screens/RegisterScreen.jsx';
-  
+import ProfileScreen from './screens/profileScreen.jsx'
+import AdminLoginScreen from './screens/adminScreens/adminLoginScreen';
+import AdminPrivateRoute from './components/AdminPrivateRoute';
+import AdminHomeScreen from './screens/adminScreens/AdminHomeScreen';
+
+
 const router=createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
       <Route index={true} path='/' element={<HomeScreen/>}/>
       <Route  path='/login' element={<LoginScreen/>}/>
       <Route  path='/register' element={<RegisterScreen/>}/>
+      <Route path='/admin' element={<AdminLoginScreen/>}/>
+
+         {/* {private Routes} */}
+      <Route path='' element={<AdminPrivateRoute/>} >
+        <Route path='/admin/adminHome' element={<AdminHomeScreen/>}/>
+      </Route>
+     
+      <Route  path='' element={<PrivateRoute/>}>
+      <Route  path='/profile' element={<ProfileScreen/>}/>
+      </Route>
+
     </Route>
   )
 )
